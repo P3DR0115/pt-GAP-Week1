@@ -30,7 +30,7 @@ function main() {
         return;
     }
 
-    // Get the storage location og attribute variable
+    // Get the storage location of attribute variable
     var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
     if (a_Position < 0) {
         console.log('Failed to get the storage location of a_Position');
