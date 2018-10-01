@@ -1,10 +1,10 @@
-﻿// Rotating Triangle with Matrix4.js
+﻿// Rotated and Translated Triangle with Matrix4.js
 // Vertex Shader Program
 var VSHADER_SOURCE =
     'attribute vec4 a_Position;\n' +
-    'uniform mat4 u_xformMatrix;\n' +
+    'uniform mat4 u_ModelMatrix;\n' +
     'void main() {\n' +
-    '  gl_Position = u_xformMatrix * a_Position;\n' +
+    '  gl_Position = u_ModelMatrix * a_Position;\n' +
     '}\n';
 
 // Fragment Shader
@@ -14,7 +14,7 @@ var FSHADER_SOURCE =
     '}\n';
 
 // Rotating angle
-var ANGLE = 90.0;
+var ANGLE = 60.0;
 var Tx = 0.5, Ty = 0.5, Tz = 0.0;
 var Sx = 1.0, Sy = 1.5, Sz = 1.0;
 
@@ -53,12 +53,18 @@ function main() {
         Tx, Ty, Tz, 1.0
     ])*/
 
-    var xformMatrix = new Matrix4();
-    xformMatrix.setRotate(ANGLE, 0, 0, 1);
+    var modelMatrix = new Matrix4();
 
-    var u_xformMatrix = gl.getUniformLocation(gl.program, 'u_xformMatrix');
+    modelMatrix.setTranslate(Tx, 0, 0);
+    modelMatrix.rotate(ANGLE, 0, 0, 1);
+    modelMatrix.scale(0.5, 0.5, 0.5);
 
-    gl.uniformMatrix4fv(u_xformMatrix, false, xformMatrix.elements);
+    //modelMatrix.setRotate(ANGLE, 0, 0, 1);
+    //modelMatrix.translate(Tx, 0, 0);
+
+    var u_ModelMatrix = gl.getUniformLocation(gl.program, 'u_ModelMatrix');
+
+    gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
 
     gl.clearColor(0, 0, 0, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);

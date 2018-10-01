@@ -1,10 +1,10 @@
-﻿// Rotating Triangle with Matrix4.js
+﻿// Continually Rotating Triangle.js
 // Vertex Shader Program
 var VSHADER_SOURCE =
     'attribute vec4 a_Position;\n' +
-    'uniform mat4 u_xformMatrix;\n' +
+    'uniform mat4 u_ModelMatrix;\n' +
     'void main() {\n' +
-    '  gl_Position = u_xformMatrix * a_Position;\n' +
+    '  gl_Position = u_ModelMatrix * a_Position;\n' +
     '}\n';
 
 // Fragment Shader
@@ -14,19 +14,20 @@ var FSHADER_SOURCE =
     '}\n';
 
 // Rotating angle
-var ANGLE = 90.0;
-var Tx = 0.5, Ty = 0.5, Tz = 0.0;
-var Sx = 1.0, Sy = 1.5, Sz = 1.0;
+var ANGLE_STEP = 45.0;
 
 function main() {
+    
     var canvas = document.getElementById('webgl');    // Grabbing the canvas element from the HTML file
 
+    // Retrieving canvas
     var gl = getWebGLContext(canvas);                 // Rendering the canvas
     if (!gl) {                                        // error log for canvas initialization
         console.log('unable to get rendering context for web gl');  // the error message
         return;                                                     // exits the program
     }                                                               // Curly brace
 
+    // Initialize shaders
     if (!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {         // Initializing shaders with an inline function
         console.log('unable to load shaders');                      // Error log message
         return;                                                     // exits the program
@@ -39,31 +40,28 @@ function main() {
         return;
     }
 
-    // Pass the data required to rotate
+    // Set the color for the canvas
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
 
-    var radian = Math.PI * ANGLE / 180.0; // Convert to radian
-    var cosB = Math.cos(radian);
-    var sinB = Math.sin(radian);
+    // Get the storage location of u_ModelMatrix variable
+    var u_ModelMatrix = gl.getUniformLocation(gl.program, 'u_ModelMatrix');
+    if (!u_ModelMatrix) {
+        console.log('unable to initialize the u_ModelMatrix');
+        return;
+    }
+    
+    var currentAngle = 0.0;
+    // Matrix4 object
+    var modelMatrix = new Matrix4();
 
-    /*
-    var xformMatrix = new Float32Array([
-        cosB, sinB, 0.0, 0.0,
-        -sinB, cosB, 0.0, 0.0,
-        0.0, 0.0, 1.0, 0.0,
-        Tx, Ty, Tz, 1.0
-    ])*/
+    //Start to draw a new triangle
+    var tick = function () {
+        currentAngle = animate(currentAngle); // Update the rotation angle
+        draw(gl, n, currentAngle, modelMatrix, u_ModelMatrix);
+        requestAnimationFrame(tick); // Request that the browser calls tick
+    };
+    tick();
 
-    var xformMatrix = new Matrix4();
-    xformMatrix.setRotate(ANGLE, 0, 0, 1);
-
-    var u_xformMatrix = gl.getUniformLocation(gl.program, 'u_xformMatrix');
-
-    gl.uniformMatrix4fv(u_xformMatrix, false, xformMatrix.elements);
-
-    gl.clearColor(0, 0, 0, 1);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-
-    gl.drawArrays(gl.TRIANGLES, 0, n);
 } // main()
 
 function initVertexBuffers(gl) {
@@ -96,3 +94,28 @@ function initVertexBuffers(gl) {
     return n;
 }
 
+function draw(gl,n, currentAngle, modelMatrix, u_ModelMatrix) { 
+    // Set up rotation matrix
+    modelMatrix.setRotate(currentAngle, 0, 0, 1);
+    modelMatrix.translate(0.75, 0, 0);
+
+    // pass the rotation matrix to the vertex shader
+    gl.uniformMatrix4fv( u_ModelMatrix, false, modelMatrix.elements);
+
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    //Draw triangle
+    gl.drawArrays(gl.TRIANGLES, 0, n);
+}
+
+var g_last = Date.now();
+function animate(angle) {
+    // Calculate the elapsed time
+    var now = Date.now();
+    var elapsed = now - g_last; // milliseconds
+    g_last = now;
+
+    // update the current rotation angle
+    var newAngle = angle + (ANGLE_STEP * elapsed) / 1000.0;
+    return newAngle %= 360;
+}
