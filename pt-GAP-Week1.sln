@@ -739,6 +739,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HelloCube", "HelloCube\", "
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ColoredCube", "ColoredCube\", "{F45FB9C7-C193-4393-B792-F63EC7FADEEE}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60168"
+		Debug.AspNetCompiler.PhysicalPath = "ColoredCube\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60168\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60168"
+		Release.AspNetCompiler.PhysicalPath = "ColoredCube\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60168\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60168"
+		SlnRelativePath = "ColoredCube\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -877,6 +899,10 @@ Global
 		{1EA69ED6-8257-4E81-A2AE-46782A97C195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EA69ED6-8257-4E81-A2AE-46782A97C195}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{1EA69ED6-8257-4E81-A2AE-46782A97C195}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -915,6 +941,7 @@ Global
 		{425856B9-6648-4D56-B62E-493601EB90B5} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
 		{4695CA0B-3BD1-4EA0-91C4-8F8F7094F3C8} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
 		{1EA69ED6-8257-4E81-A2AE-46782A97C195} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
+		{F45FB9C7-C193-4393-B792-F63EC7FADEEE} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90250B22-830B-4680-8CC8-75034F7FC61D}
