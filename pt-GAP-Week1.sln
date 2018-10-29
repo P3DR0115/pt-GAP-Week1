@@ -761,6 +761,52 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ColoredCube", "ColoredCube\
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter8", "Chapter8", "{84487E21-DD88-4DE3-9DF6-D19F57276499}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LightedCube_Ambient", "LightedCube_Ambient\", "{C955413B-33F4-4607-82B1-3418CC87B9CE}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59736"
+		Debug.AspNetCompiler.PhysicalPath = "LightedCube_Ambient\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59736\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59736"
+		Release.AspNetCompiler.PhysicalPath = "LightedCube_Ambient\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59736\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59736"
+		SlnRelativePath = "LightedCube_Ambient\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PointLighted_PerFragment", "PointLighted_PerFragment\", "{055B4EFD-FC1B-4117-BAB3-EF409C880F9F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60310"
+		Debug.AspNetCompiler.PhysicalPath = "PointLighted_PerFragment\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60310\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60310"
+		Release.AspNetCompiler.PhysicalPath = "PointLighted_PerFragment\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60310\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60310"
+		SlnRelativePath = "PointLighted_PerFragment\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -903,6 +949,14 @@ Global
 		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{F45FB9C7-C193-4393-B792-F63EC7FADEEE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C955413B-33F4-4607-82B1-3418CC87B9CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C955413B-33F4-4607-82B1-3418CC87B9CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C955413B-33F4-4607-82B1-3418CC87B9CE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C955413B-33F4-4607-82B1-3418CC87B9CE}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{055B4EFD-FC1B-4117-BAB3-EF409C880F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{055B4EFD-FC1B-4117-BAB3-EF409C880F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{055B4EFD-FC1B-4117-BAB3-EF409C880F9F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{055B4EFD-FC1B-4117-BAB3-EF409C880F9F}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -942,6 +996,8 @@ Global
 		{4695CA0B-3BD1-4EA0-91C4-8F8F7094F3C8} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
 		{1EA69ED6-8257-4E81-A2AE-46782A97C195} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
 		{F45FB9C7-C193-4393-B792-F63EC7FADEEE} = {8C7F1A4D-6B5A-40D6-B946-F75CFFD8F753}
+		{C955413B-33F4-4607-82B1-3418CC87B9CE} = {84487E21-DD88-4DE3-9DF6-D19F57276499}
+		{055B4EFD-FC1B-4117-BAB3-EF409C880F9F} = {84487E21-DD88-4DE3-9DF6-D19F57276499}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90250B22-830B-4680-8CC8-75034F7FC61D}
